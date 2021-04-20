@@ -1,6 +1,7 @@
 import 'package:devQuiz/core/app_widget.dart';
 import 'package:devQuiz/home/widgets/appbar/app_bar.dart';
 import 'package:devQuiz/home/widgets/elevel_button/level_button_widget.dart';
+import 'package:devQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,21 +17,44 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBarWidget(),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
             children: [
-              LevelButtonWidget(
-                label: "Fácil",
+              SizedBox(
+                height: 16,
               ),
-              LevelButtonWidget(
-                label: "Médio",
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LevelButtonWidget(
+                    label: "Fácil",
+                  ),
+                  LevelButtonWidget(
+                    label: "Médio",
+                  ),
+                  LevelButtonWidget(
+                    label: "Difícil",
+                  ),
+                  LevelButtonWidget(
+                    label: "Períto",
+                  ),
+                ],
               ),
-              LevelButtonWidget(
-                label: "Difícil",
+              SizedBox(
+                height: 16,
               ),
-              LevelButtonWidget(
-                label: "Períto",
+              Expanded(
+                child: GridView.count(
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 12,
+                  crossAxisCount: 2,
+                  children: [
+                    QuizCardWidget(),
+                    QuizCardWidget(),
+                    QuizCardWidget(),
+                    QuizCardWidget(),
+                  ],
+                ),
               ),
             ],
           ),

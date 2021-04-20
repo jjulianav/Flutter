@@ -11,6 +11,9 @@ class QuestionIndicatorWidget extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
+            SizedBox(
+              height: 6,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -21,7 +24,7 @@ class QuestionIndicatorWidget extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            ProgressIndicatorWidget(value: 0.7),
+            ProgressIndicatorWidget(value: 0.4),
           ],
         ),
       ),

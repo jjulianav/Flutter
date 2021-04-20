@@ -5,7 +5,7 @@ import 'package:devQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage(Key? key)
+  const HomePage(Key? key)
       : super(key: key); // ? - significa que a variavel pode ser nula
   @override
   _HomePageState createState() => _HomePageState();
@@ -49,10 +49,18 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 12,
                   crossAxisCount: 2,
                   children: [
-                    QuizCardWidget(),
-                    QuizCardWidget(),
-                    QuizCardWidget(),
-                    QuizCardWidget(),
+                    QuizCardWidget(
+                      title: "Gerenciamento de Estado",
+                    ),
+                    QuizCardWidget(
+                      title: "Contruindo Interfaces",
+                    ),
+                    QuizCardWidget(
+                      title: "Integração",
+                    ),
+                    QuizCardWidget(
+                      title: "Widgets",
+                    ),
                   ],
                 ),
               ),

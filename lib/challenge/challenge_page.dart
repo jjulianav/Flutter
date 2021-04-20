@@ -1,5 +1,4 @@
 import 'package:devQuiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
-import 'package:devQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/quiz/quiz_widget.dart';

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:devQuiz/challenge/widgets/awner/awnser_widget.dart';
 import 'package:devQuiz/core/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +18,27 @@ class QuizWidget extends StatelessWidget {
           SizedBox(
             height: 24,
           ),
-          AwnserWidget(title: "Possibilidade")
+          AwnserWidget(
+            isRight: false,
+            isSelected: true,
+            title: "Kide desenvolvimento de interface de usuário.",
+          ),
+          AwnserWidget(
+            isRight: true,
+            isSelected: true,
+            title:
+                "Possibilita a criação de aplicativos compilados nativamente.",
+          ),
+          AwnserWidget(
+            isRight: false,
+            isSelected: true,
+            title: "Acho que é uma marca de café do Himalaia.",
+          ),
+          AwnserWidget(
+            isRight: true,
+            isSelected: true,
+            title: "Possibilita a criação de desktops que são muito incríveis.",
+          ),
         ],
       ),
     );

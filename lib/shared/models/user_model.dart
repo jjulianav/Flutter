@@ -1,11 +1,11 @@
-class UeserModel {
+class UserModel {
   final String name;
   final String photoURL;
   final int score;
 
-  UeserModel({
+  UserModel({
     required this.name,
     required this.photoURL,
-    required this.score,
+    this.score = 0,
   });
 }

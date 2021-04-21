@@ -1,7 +1,9 @@
 import 'package:devQuiz/core/app_widget.dart';
+import 'package:devQuiz/home/home_controller.dart';
 import 'package:devQuiz/home/widgets/appbar/app_bar.dart';
 import 'package:devQuiz/home/widgets/elevel_button/level_button_widget.dart';
 import 'package:devQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
+import 'package:devQuiz/shared/models/user_model.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,10 +14,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = HomeController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarWidget(),
+        appBar: AppBarWidget(user: controller.user!),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
@@ -56,10 +60,16 @@ class _HomePageState extends State<HomePage> {
                       title: "Contruindo Interfaces",
                     ),
                     QuizCardWidget(
-                      title: "Integração",
+                      title: "Integração Nativa",
                     ),
                     QuizCardWidget(
-                      title: "Widgets",
+                      title: "Widgets do Flutter",
+                    ),
+                    QuizCardWidget(
+                      title: "Construindo interfaces",
+                    ),
+                    QuizCardWidget(
+                      title: "Gerenciamento de Estado",
                     ),
                   ],
                 ),

@@ -1,4 +1,4 @@
-import 'package:devQuiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
+import 'package:dev_quiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/quiz/quiz_widget.dart';

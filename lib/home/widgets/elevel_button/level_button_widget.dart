@@ -1,5 +1,5 @@
-import 'package:devQuiz/core/app_colors.dart';
-import 'package:devQuiz/core/app_text_styles.dart';
+import 'package:dev_quiz/core/app_colors.dart';
+import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,7 +9,7 @@ class LevelButtonWidget extends StatelessWidget {
   LevelButtonWidget({
     Key? key,
     required this.label,
-  })   : assert(["Fácil", "Médio", "Difícil", "Períto"].contains(label)),
+  })  : assert(["Fácil", "Médio", "Difícil", "Períto"].contains(label)),
         super(key: key);
 
   final config = {

@@ -1,12 +1,12 @@
-import 'package:devQuiz/challenge/widgets/quiz/quiz_widget.dart';
-import 'package:devQuiz/core/app_colors.dart';
-import 'package:devQuiz/core/app_widget.dart';
-import 'package:devQuiz/home/home_controller.dart';
-import 'package:devQuiz/home/home_state.dart';
-import 'package:devQuiz/home/widgets/appbar/app_bar.dart';
-import 'package:devQuiz/home/widgets/elevel_button/level_button_widget.dart';
-import 'package:devQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
-import 'package:devQuiz/shared/models/user_model.dart';
+import 'package:dev_quiz/challenge/widgets/quiz/quiz_widget.dart';
+import 'package:dev_quiz/core/app_colors.dart';
+import 'package:dev_quiz/core/app_widget.dart';
+import 'package:dev_quiz/home/home_controller.dart';
+import 'package:dev_quiz/home/home_state.dart';
+import 'package:dev_quiz/home/widgets/appbar/app_bar.dart';
+import 'package:dev_quiz/home/widgets/elevel_button/level_button_widget.dart';
+import 'package:dev_quiz/home/widgets/quiz_card/quiz_card_widget.dart';
+import 'package:dev_quiz/shared/models/user_model.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

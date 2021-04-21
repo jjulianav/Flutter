@@ -1,9 +1,15 @@
-import 'package:devQuiz/core/app_colors.dart';
-import 'package:devQuiz/core/app_text_styles.dart';
+import 'package:dev_quiz/home/widgets/appbar/app_bar.dart';
 import 'package:flutter/material.dart';
 
+import 'package:dev_quiz/core/app_colors.dart';
+import 'package:dev_quiz/core/app_text_styles.dart';
+import 'package:dev_quiz/shared/models/user_model.dart';
+
 class ChartWidget extends StatelessWidget {
-  const ChartWidget({Key? key}) : super(key: key);
+  const ChartWidget({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(

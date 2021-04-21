@@ -1,4 +1,4 @@
-import 'package:devQuiz/core/core.dart';
+import 'package:dev_quiz/core/core.dart';
 import 'package:flutter/material.dart';
 
 class ProgressIndicatorWidget extends StatelessWidget {

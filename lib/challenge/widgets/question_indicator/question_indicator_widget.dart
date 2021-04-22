@@ -22,7 +22,7 @@ class QuestionIndicatorWidget extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 16,
+              height: 10,
             ),
             ProgressIndicatorWidget(value: 0.4),
           ],

@@ -9,41 +9,17 @@
                 "title": "O que é o Flutter faz em sua totalidade?",
                 "awnsers": [
                     {
-                        "title": "Kit desenvolvimento de interface de usuário.",
-                        "isRight": false
+                        "title": "Kit desenvolvimento de interface de usuário."
                     },
                     {
                         "title": "Possibilita a criação de aplicativos compilados nativamente.",
                         "isRight": true
                     },
                     {
-                        "title": "Acho que é uma marca de café do Himalaia.",
-                        "isRight": false
+                        "title": "Acho que é uma marca de café do Himalaia."
                     },
                     {
-                        "title": "Possibilita a criação de desktops que são muito incríveis.",
-                        "isRight": false
-                    }
-                ]
-            },
-            {
-                "title": "Está curtindo o Flutter?",
-                "awnsers": [
-                    {
-                        "title": "Sim, estou curtindo",
-                        "isRight": false
-                    },
-                    {
-                        "title": "Não, estou com dificuldade",
-                        "isRight": false
-                    },
-                    {
-                        "title": "Amando Flutter",
-                        "isRight": true
-                    },
-                    {
-                        "title": "Show de bola!!!",
-                        "isRight": false
+                        "title": "Possibilita a criação de desktops que são muito incríveis."
                     }
                 ]
             }

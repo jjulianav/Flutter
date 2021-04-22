@@ -1,3 +1,4 @@
+import 'package:dev_quiz/challenge/challenge_page.dart';
 import 'package:dev_quiz/challenge/widgets/quiz/quiz_widget.dart';
 import 'package:dev_quiz/core/app_colors.dart';
 import 'package:dev_quiz/core/app_widget.dart';
@@ -10,7 +11,7 @@ import 'package:dev_quiz/shared/models/user_model.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage(Key? key)
+  const HomePage({Key? key})
       : super(key: key); // ? - significa que a variavel pode ser nula
   @override
   _HomePageState createState() => _HomePageState();
@@ -79,6 +80,12 @@ class _HomePageState extends State<HomePage> {
                             title: e.title,
                             completed:
                                 "${e.questionAnswered}/${e.questions.length}",
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ChallengePage()));
+                            },
                           ),
                         )
                         .toList(),

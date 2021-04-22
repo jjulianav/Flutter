@@ -23,7 +23,7 @@ class QuizWidget extends StatelessWidget {
           ),
           AwnserWidget(
             isRight: false,
-            isSelected: true,
+            // isSelected: true,
             title: "Kide desenvolvimento de interface de usuário.",
           ),
           AwnserWidget(
@@ -34,12 +34,12 @@ class QuizWidget extends StatelessWidget {
           ),
           AwnserWidget(
             isRight: false,
-            isSelected: true,
+            //isSelected: true,
             title: "Acho que é uma marca de café do Himalaia.",
           ),
           AwnserWidget(
             isRight: true,
-            isSelected: true,
+            //isSelected: true,
             title: "Possibilita a criação de desktops que são muito incríveis.",
           ),
         ],

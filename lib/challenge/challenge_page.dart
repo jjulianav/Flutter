@@ -1,3 +1,4 @@
+import 'package:dev_quiz/challenge/challenge_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
@@ -19,6 +20,21 @@ class ChallengePage extends StatefulWidget {
 }
 
 class _ChallengePageState extends State<ChallengePage> {
+  final controller = ChallengeController();
+  final pageController = PageController();
+
+  void initState() {
+    // controller.currentPageNotifier.addListener(() {
+    //   setState(() {});
+    // });
+
+    pageController.addListener(() {
+      controller.currentPage = pageController.page!.toInt() + 1;
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,13 +52,21 @@ class _ChallengePageState extends State<ChallengePage> {
               //       Navigator.pop(context);
               //     },
               //     icon: Icon(Icons.close)),
-              QuestionIndicatorWidget(),
+              ValueListenableBuilder<int>(
+                valueListenable: controller.currentPageNotifier,
+                builder: (context, value, _) => QuestionIndicatorWidget(
+                  currentPage: value,
+                  length: widget.questions.length,
+                ),
+              ) // pra não renderizar a pg toda
             ],
           ),
         ),
       ),
-      body: QuizWidget(
-        question: widget.questions[0],
+      body: PageView(
+        physics: NeverScrollableScrollPhysics(), //travar scroll da pagina
+        controller: pageController,
+        children: widget.questions.map((e) => QuizWidget(question: e)).toList(),
       ),
       bottomNavigationBar: SafeArea(
         bottom: true,
@@ -54,7 +78,12 @@ class _ChallengePageState extends State<ChallengePage> {
               Expanded(
                 child: NextButtonWidget.white(
                   label: "Pular",
-                  onTap: () {},
+                  onTap: () {
+                    pageController.nextPage(
+                      duration: Duration(seconds: 2),
+                      curve: Curves.linear,
+                    );
+                  },
                 ),
               ),
               SizedBox(

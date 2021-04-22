@@ -60,7 +60,7 @@ class NextButtonWidget extends StatelessWidget {
             overlayColor,
           ),
         ),
-        onPressed: () {},
+        onPressed: onTap,
         child: Text(
           label,
           style: GoogleFonts.notoSans(

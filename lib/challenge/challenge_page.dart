@@ -35,6 +35,16 @@ class _ChallengePageState extends State<ChallengePage> {
     super.initState();
   }
 
+  void nextPage() {
+    if (controller.currentPage <
+        widget.questions
+            .length) // se a pagina atual for menor que o tamanho das questões
+      pageController.nextPage(
+        duration: Duration(milliseconds: 50),
+        curve: Curves.linear,
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,36 +76,44 @@ class _ChallengePageState extends State<ChallengePage> {
       body: PageView(
         physics: NeverScrollableScrollPhysics(), //travar scroll da pagina
         controller: pageController,
-        children: widget.questions.map((e) => QuizWidget(question: e)).toList(),
+        children: widget.questions
+            .map((e) => QuizWidget(question: e, onChange: nextPage))
+            .toList(),
       ),
       bottomNavigationBar: SafeArea(
         bottom: true,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Expanded(
-                child: NextButtonWidget.white(
-                  label: "Pular",
-                  onTap: () {
-                    pageController.nextPage(
-                      duration: Duration(seconds: 2),
-                      curve: Curves.linear,
-                    );
-                  },
-                ),
-              ),
-              SizedBox(
-                width: 7,
-              ),
-              Expanded(
-                child: NextButtonWidget.green(
-                  label: "Confirmar",
-                  onTap: () {},
-                ),
-              ),
-            ],
+          child: ValueListenableBuilder<int>(
+            // renderiza o button Confirmar apenas no final do quiz
+            valueListenable: controller.currentPageNotifier,
+            builder: (context, value, _) => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                if (value < widget.questions.length)
+                  Expanded(
+                    child: NextButtonWidget.white(
+                      label: "Pular",
+                      onTap: () {
+                        nextPage();
+                      },
+                    ),
+                  ),
+                // if (value == widget.questions.length)
+                //   SizedBox(
+                //     width: 7,
+                //   ),
+                if (value == widget.questions.length)
+                  Expanded(
+                    child: NextButtonWidget.green(
+                      label: "Confimar",
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

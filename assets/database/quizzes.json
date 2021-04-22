@@ -6,22 +6,22 @@
         "image": "blocks",
         "questions": [
             {
-                "title": "Está curtindo o Flutter?",
+                "title": "O que é o Flutter faz em sua totalidade?",
                 "awnsers": [
                     {
-                        "title": "Sim, estou curtindo",
+                        "title": "Kit desenvolvimento de interface de usuário.",
                         "isRight": false
                     },
                     {
-                        "title": "Não, estou com dificuldade",
-                        "isRight": false
-                    },
-                    {
-                        "title": "Amando Flutter",
+                        "title": "Possibilita a criação de aplicativos compilados nativamente.",
                         "isRight": true
                     },
                     {
-                        "title": "Show de bola!!!",
+                        "title": "Acho que é uma marca de café do Himalaia.",
+                        "isRight": false
+                    },
+                    {
+                        "title": "Possibilita a criação de desktops que são muito incríveis.",
                         "isRight": false
                     }
                 ]

@@ -1,4 +1,5 @@
 import 'package:dev_quiz/challenge/challenge_controller.dart';
+import 'package:dev_quiz/result/result_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
@@ -99,16 +100,15 @@ class _ChallengePageState extends State<ChallengePage> {
                       },
                     ),
                   ),
-                // if (value == widget.questions.length)
-                //   SizedBox(
-                //     width: 7,
-                //   ),
                 if (value == widget.questions.length)
                   Expanded(
                     child: NextButtonWidget.green(
                       label: "Confimar",
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ResultPage()),
+                        );
                       },
                     ),
                   ),

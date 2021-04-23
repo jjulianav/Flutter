@@ -7,12 +7,13 @@ import 'package:dev_quiz/shared/models/question_model.dart';
 
 class QuizWidget extends StatefulWidget {
   final QuestionModel question;
-  final VoidCallback onChange;
+  final ValueChanged<bool> onSelected;
+  //final VoidCallback onChange;
 
   const QuizWidget({
     Key? key,
     required this.question,
-    required this.onChange,
+    required this.onSelected,
   }) : super(key: key);
 
   @override
@@ -33,31 +34,35 @@ class _QuizWidgetState extends State<QuizWidget> {
           SizedBox(
             height: 32,
           ),
-          Text(
-            widget.question.title,
-            style: AppTextStyles.heading,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Text(
+              widget.question.title,
+              style: AppTextStyles.heading,
+            ),
           ),
           SizedBox(
             height: 24,
           ),
           for (var i = 0; i < widget.question.awnsers.length; i++)
-            AwnserWidget(
-              awnser: awnser(i),
-              isSelected: indexSelected == i,
-              disabled: indexSelected != -1,
-              onTap: () {
-                indexSelected = i;
-                //widget.onChange();
+            Expanded(
+              child: AwnserWidget(
+                awnser: awnser(i),
+                isSelected: indexSelected == i,
+                disabled: indexSelected != -1,
+                onTap: (value) {
+                  indexSelected = i;
 
-                setState(() {});
-                Future.delayed(
-                  Duration(seconds: 1),
-                ) //delay para visualização da resposta
-                    .then((value) => widget.onChange());
-              },
-              //isRight: widget.question.awnsers[i].isRight, //forma anterior antes da função
-              //isRight: awnser(i).isRight,
-              //title: awnser(i).title,
+                  setState(() {});
+                  Future.delayed(
+                    Duration(seconds: 1),
+                  ) //delay para visualização da resposta
+                      .then((_) => widget.onSelected(value));
+                },
+                //isRight: widget.question.awnsers[i].isRight, //forma anterior antes da função
+                //isRight: awnser(i).isRight,
+                //title: awnser(i).title,
+              ),
             )
         ],
       ),

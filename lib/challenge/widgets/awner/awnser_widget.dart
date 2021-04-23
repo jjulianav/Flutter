@@ -8,7 +8,7 @@ class AwnserWidget extends StatelessWidget {
   final AwnserModel awnser;
   final bool isSelected;
   final bool disabled;
-  final VoidCallback onTap;
+  final ValueChanged<bool> onTap;
 
   const AwnserWidget({
     Key? key,
@@ -43,7 +43,9 @@ class AwnserWidget extends StatelessWidget {
         //o componente só pode ser clicado uma vez
         ignoring: disabled,
         child: GestureDetector(
-          onTap: onTap,
+          onTap: () {
+            onTap(awnser.isRight); // devolve se a seleção é correta ou não
+          },
           child: Container(
             padding: EdgeInsets.all(16.0),
             decoration: BoxDecoration(

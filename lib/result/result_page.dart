@@ -1,11 +1,22 @@
+import 'package:flutter/material.dart';
+
 import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/core/app_images.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
-import 'package:dev_quiz/home/home_page.dart';
-import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ResultPage extends StatelessWidget {
+  final String title;
+  final int length;
+  final int result;
+
+  const ResultPage({
+    Key? key,
+    required this.title,
+    required this.length,
+    required this.result,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,10 +45,11 @@ class ResultPage extends StatelessWidget {
                     style: AppTextStyles.body,
                     children: [
                       TextSpan(
-                          text: "\n Gerencimaneto de Estado",
-                          style: AppTextStyles.bodyBold),
+                        text: "\n$title",
+                        style: AppTextStyles.bodyBold,
+                      ),
                       TextSpan(
-                          text: "\n com 6 de 10 acertos.",
+                          text: "\n com $result de $length acertos.",
                           style: AppTextStyles.body)
                     ],
                   ),
@@ -58,7 +70,10 @@ class ResultPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 68),
                         child: NextButtonWidget.purple(
                           label: "Compartilhar",
-                          onTap: () {},
+                          onTap: () {
+                            Share.share(
+                                'check out my website https://example.com');
+                          },
                         ),
                       ),
                     ),
@@ -76,11 +91,8 @@ class ResultPage extends StatelessWidget {
                         child: NextButtonWidget.transparente(
                             label: "Voltar ao início",
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          HomePage())); // pop - volta pra tela anterior
+                              Navigator.pop(
+                                  context); // pop - volta pra tela anterior
                             }),
                       ),
                     ),

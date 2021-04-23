@@ -1,19 +1,21 @@
-import 'package:dev_quiz/challenge/challenge_controller.dart';
-import 'package:dev_quiz/result/result_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:dev_quiz/challenge/challenge_controller.dart';
 import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
+import 'package:dev_quiz/result/result_page.dart';
 import 'package:dev_quiz/shared/models/question_model.dart';
 
 import 'widgets/quiz/quiz_widget.dart';
 
 class ChallengePage extends StatefulWidget {
   final List<QuestionModel> questions;
+  final String title;
 
   const ChallengePage({
     Key? key,
     required this.questions,
+    required this.title,
   }) : super(key: key);
 
   @override
@@ -46,6 +48,13 @@ class _ChallengePageState extends State<ChallengePage> {
       );
   }
 
+  void onSelected(bool value) {
+    if (value) {
+      controller.hits++;
+    }
+    nextPage();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +66,7 @@ class _ChallengePageState extends State<ChallengePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BackButton(),
+              Expanded(child: BackButton()),
               // IconButton( //outra maneira de fazer o botãoa para voltar a pg
               //     onPressed: () {
               //       Navigator.pop(context);
@@ -78,7 +87,7 @@ class _ChallengePageState extends State<ChallengePage> {
         physics: NeverScrollableScrollPhysics(), //travar scroll da pagina
         controller: pageController,
         children: widget.questions
-            .map((e) => QuizWidget(question: e, onChange: nextPage))
+            .map((e) => QuizWidget(question: e, onSelected: onSelected))
             .toList(),
       ),
       bottomNavigationBar: SafeArea(
@@ -95,9 +104,7 @@ class _ChallengePageState extends State<ChallengePage> {
                   Expanded(
                     child: NextButtonWidget.white(
                       label: "Pular",
-                      onTap: () {
-                        nextPage();
-                      },
+                      onTap: nextPage,
                     ),
                   ),
                 if (value == widget.questions.length)
@@ -105,9 +112,14 @@ class _ChallengePageState extends State<ChallengePage> {
                     child: NextButtonWidget.green(
                       label: "Confimar",
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => ResultPage()),
+                          MaterialPageRoute(
+                              builder: (context) => ResultPage(
+                                    result: controller.hits,
+                                    length: widget.questions.length,
+                                    title: widget.title,
+                                  )),
                         );
                       },
                     ),
